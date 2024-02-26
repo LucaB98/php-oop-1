@@ -1,6 +1,6 @@
 <?php
 
-include_once __DIR__ . '/director.php';
+include_once __DIR__ . '/person.php';
 
 class Movie
 {
@@ -8,22 +8,28 @@ class Movie
     public $director;
     public $id;
     public $genre;
-    public $cast;
+    public $cast=[];
 
-    public function __construct($id, $title, $genre, Director $director, array $cast = [])
+    public function __construct($id, $title, $genre, Person $director)
     {
         $this->id = $id;
         $this->title = $title;
         $this->director = $director;
         $this->genre = $genre;
-        $this->cast = $cast;
+
+    }
+
+    public function addActor(Person $actor, $role){
+        if($actor instanceof Person){
+            $this->cast[$role] = $actor;
+        }
     }
 
     public function getCastNames()
     {
         $names = '';
-        foreach($this->cast as $actor){
-            $names .= $actor->getFullName() . ', ';
+        foreach($this->cast as $role => $actor){
+            $names .= $role .': '. $actor->getFullName() . ', ';
         }
 
         return substr($names, 0, -2);

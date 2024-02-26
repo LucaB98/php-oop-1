@@ -1,6 +1,6 @@
 <?php
 
-class Actor
+class Person
 {
     public $id;
     public $first_name;

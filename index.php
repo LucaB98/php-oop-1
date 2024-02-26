@@ -1,17 +1,20 @@
 <?php
 include_once __DIR__ . '/models/movie.php';
-include_once __DIR__ . '/models/actor.php';
-include_once __DIR__ . '/models/director.php';
+include_once __DIR__ . '/models/person.php';
 
-$director = new Director(1, 'Peter', 'Jackson');
+$director = new Person(1, 'Peter', 'Jackson');
 
-$actor1 = new Actor(1, 'Ryan', 'Renols');
-$actor2 = new Actor(2, 'Robert', 'daweyn');
+$actor1 = new Person(1, 'Ryan', 'Renols');
+$actor2 = new Person(2, 'Robert', 'daweyn');
 
 $actors = [$actor1, $actor2];
 
-$movie1 = new Movie(1, 'Deadpool', 'Violence', $director, $actors);
-$movie2 = new Movie(2, 'IronMan', 'sci-fi', $director, $actors);
+$movie1 = new Movie(1, 'Deadpool', 'Violence', $director);
+
+$movie1->addActor($actor1, 'deadpool');
+
+
+$movie2 = new Movie(2, 'IronMan', 'sci-fi', $director);
 
 $movies = [$movie1, $movie2];
 ?>

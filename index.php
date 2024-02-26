@@ -1,23 +1,15 @@
 <?php
-class Movie
-{
-    public $title;
-    public $director;
-    public $actor;
 
-    public function __construct($title, $director, $actor)
-    {
-        $this->title = $title;
-        $this->director = $director;
-        $this->actor = $actor;
-    }
+?>
 
-    public function infoMovie()
-    {
-        echo $this->title . ' ' . $this->director;
-    }
-}
-
-$movie1 = new Movie('amazon', 'marco', 'george');
-
-$movie1->infoMovie();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+</head>
+<body>
+    
+</body>
+</html>
